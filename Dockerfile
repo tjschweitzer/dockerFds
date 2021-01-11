@@ -35,18 +35,20 @@ RUN apt-get -y install python3-pip
 RUN apt-get -y install curl
 RUN apt-get -y install git
 
-#RUN pip3 install --upgrade pip
-#RUN pip3 install rasterio
-#RUN pip3 install numpy
-#RUN pip3 install Flask
-
 RUN echo 'ulimit -s unlimited' >> ~/.bashrc
-# RUN ulimit -s unlimited
+#RUN ulimit -s unlimited
 
 ENV LANG en_US.utf8
 RUN git clone https://github.com/tjschweitzer/geotif2fds.git
 WORKDIR /workdir/geotif2fds
-RUN pip3 install -r /workdir/geotif2fds/requirements.txt
+# RUN pip3 install -r /workdir/geotif2fds/requirements.txt
+
+RUN pip3 install --upgrade pip
+RUN pip3 install rasterio
+RUN pip3 install numpy
+RUN pip3 install Flask
+
+
 
 ENTRYPOINT [ "flask" ]
 
