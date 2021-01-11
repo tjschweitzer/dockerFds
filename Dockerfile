@@ -40,7 +40,8 @@ RUN apt-get -y install git
 #RUN pip3 install numpy
 #RUN pip3 install Flask
 
-RUN ulimit -s unlimited
+RUN echo 'ulimit -s unlimited' >> ~/.bashrc
+# RUN ulimit -s unlimited
 
 ENV LANG en_US.utf8
 RUN git clone https://github.com/tjschweitzer/geotif2fds.git
