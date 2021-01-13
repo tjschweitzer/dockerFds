@@ -50,7 +50,6 @@ RUN pip3 install Flask
 
 
 
-ENTRYPOINT [ "flask" ]
+CMD ["flask", "run", "--host=0.0.0.0"]
 
-CMD [ "run" ]
 
